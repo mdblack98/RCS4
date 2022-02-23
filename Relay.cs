@@ -351,6 +351,8 @@ namespace RCS4
             if (ftdi == null)
             {
                 Open(false);
+                MyMessageBox("ftdi == null??", __FUNC__(), __LINE__());
+                return;
             }
             Monitor.Enter(ftdi);
             errMsg = null;
