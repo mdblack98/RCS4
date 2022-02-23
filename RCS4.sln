@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCS4", "RCS4.csproj", "{482185FB-AB1D-4A1A-AA13-3CC8BE0A0FEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{482185FB-AB1D-4A1A-AA13-3CC8BE0A0FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{482185FB-AB1D-4A1A-AA13-3CC8BE0A0FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{482185FB-AB1D-4A1A-AA13-3CC8BE0A0FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{482185FB-AB1D-4A1A-AA13-3CC8BE0A0FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {366A1D93-A1DF-4E80-B14B-7CA43EAA7C32}
+	EndGlobalSection
+EndGlobal
