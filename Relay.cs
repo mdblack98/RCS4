@@ -65,6 +65,10 @@ namespace RCS4
                     ++index;
                 }
                 devcount = nRelays;
+                if (devcount == 0)
+                {
+                    MyMessageBox("Denkovi relay not found", __FILE__(), __LINE__());
+                }
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
