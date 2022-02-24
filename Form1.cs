@@ -14,7 +14,7 @@ namespace RCS4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (myRelay.devcount > 0)
+            if (myRelay.comList.Count > 0)
             {
                 myRelay.Open(myRelay.comList[0]);
                 int status = myRelay.Status();

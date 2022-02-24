@@ -18,7 +18,8 @@ namespace RCS4
         public string serialNumber = "";
         readonly List<string> serialNums = new List<string>();
         public string? errMsg = null;
-
+        bool debug = true;
+        string debugFile = Path.GetTempPath() + "rcs4.log";
         static int __LINE__([System.Runtime.CompilerServices.CallerLineNumber] int lineNumber = 0)
         {
             return lineNumber;
@@ -33,6 +34,7 @@ namespace RCS4
         }
         public Relay()
         {
+            if (File.Exists(debugFile)) File.Delete(debugFile);
             try
             {
                 ftdi.SetBaudRate(9600);
@@ -46,10 +48,20 @@ namespace RCS4
                 FT_STATUS status = ftdi.GetDeviceList(nodes);
                 uint index = 0;
                 uint nRelays = 0;
+                if (debug)
+                {
+                    File.AppendAllText(debugFile, "devcount=" + devcount + "\n");
+                }
                 foreach (FT_DEVICE_INFO_NODE node in nodes)
                 {
                     //if (node.Description.Contains("FT245R"))
-                    if (node.Type.ToString().Contains("232R"))
+                    File.AppendAllText(debugFile, "==========================");
+                    File.AppendAllText(debugFile, "SerialNumber=" + node.SerialNumber + "\n");
+                    File.AppendAllText(debugFile, "Description=" + node.Description + "\n");
+                    File.AppendAllText(debugFile, "ID=" + node.ID + "\n");
+                    File.AppendAllText(debugFile, "Type=" + node.Type.ToString() + "\n");
+                    var mySerialNumber = node.SerialNumber.Length > 3 ? node.SerialNumber[..3] : "";
+                    if (mySerialNumber.Equals("DAE"))
                     {
                         nRelays++;
                         ftdi.OpenByIndex(index);
@@ -57,6 +69,7 @@ namespace RCS4
                         FT232R_EEPROM_STRUCTURE ee232r = new FT232R_EEPROM_STRUCTURE();
                         ftdi.ReadFT232REEPROM(ee232r);
                         ftdi.GetCOMPort(out string comport);
+                        File.AppendAllText(debugFile, "ComPort=" + comport + "\n");
                         //Close();
                         comList.Add(comport);
                         comIndex.Add(index);
