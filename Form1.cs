@@ -29,23 +29,23 @@ namespace RCS4
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             //myRelay.AllOn();
-            myRelay.Set(2, radioButton1.Checked ? (byte)1:(byte)0);
+            myRelay.Set(1, radioButton1.Checked ? (byte)1:(byte)0);
             //myRelay.AllOff();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            myRelay.Set(4, radioButton2.Checked ? (byte)1 : (byte)0);
+            myRelay.Set(2, radioButton2.Checked ? (byte)1 : (byte)0);
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            myRelay.Set(6, radioButton3.Checked ? (byte)1 : (byte)0);
+            myRelay.Set(3, radioButton3.Checked ? (byte)1 : (byte)0);
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            myRelay.Set(8, radioButton4.Checked ? (byte)1 : (byte)0);
+            myRelay.Set(4, radioButton4.Checked ? (byte)1 : (byte)0);
         }
     }
 }

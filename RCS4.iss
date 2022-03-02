@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "RCS4"
-#define MyAppVersion "0.1"
+#define MyAppVersion "0.4"
 #define MyAppPublisher "W9MDB"
 #define MyAppURL "https://www.qrz.com/W9MDB"
 #define MyAppExeName "RCS4.exe"
@@ -29,7 +29,7 @@ AllowNoIcons=yes
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=C:\Users\mdbla\Dropbox\Projects\RCS4\Install
-OutputBaseFilename=RCS4
+OutputBaseFilename=RCS4-{#MyAppVersion}
 SetupIconFile=C:\Users\mdbla\Downloads\icons8-antenna-64.ico
 Compression=lzma
 SolidCompression=yes
@@ -42,7 +42,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\mdbla\Dropbox\Projects\RCS4\bin\Release\net6.0-windows\{#MyAppExeName}-{MyAppVerion}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\mdbla\Dropbox\Projects\RCS4\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\mdbla\Dropbox\Projects\RCS4\bin\Release\net6.0-windows\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
