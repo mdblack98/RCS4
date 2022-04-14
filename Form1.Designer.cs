@@ -63,7 +63,7 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Ant#4";
             this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.RadioButton4_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -75,7 +75,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Ant#3";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.RadioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -87,7 +87,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Ant#2";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -99,7 +99,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Ant#1";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // Form1
             // 
@@ -111,7 +111,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "RCS4 V0.7";
+            this.Text = "RCS4 V1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

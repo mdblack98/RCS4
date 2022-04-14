@@ -9,26 +9,32 @@ namespace RCS4
 {
     class Relay
     {
-        public FTDI? ftdi = new FTDI();
-        public readonly List<string> comList = new List<string>();
-        readonly List<uint> comIndex = new List<uint>();
+        public FTDI? ftdi = new();
+        public readonly List<string> comList = new();
+        readonly List<uint> comIndex = new();
         public readonly uint devcount = 0;
         string comPort = "";
         int relayNum = 0;
         public string serialNumber = "";
-        readonly List<string> serialNums = new List<string>();
+        readonly List<string> serialNums = new();
         public string? errMsg = null;
-        bool debug = true;
-        string debugFile = Path.GetTempPath() + "rcs4.log";
+        readonly bool debug = true;
+        readonly string debugFile = Path.GetTempPath() + "rcs4.log";
+#pragma warning disable IDE1006 // Naming Styles
         static int __LINE__([System.Runtime.CompilerServices.CallerLineNumber] int lineNumber = 0)
+#pragma warning restore IDE1006 // Naming Styles
         {
             return lineNumber;
         }
+#pragma warning disable IDE1006 // Naming Styles
         static string __FILE__([System.Runtime.CompilerServices.CallerFilePath] string fileName = "")
+#pragma warning restore IDE1006 // Naming Styles
         {
             return fileName;
         }
+#pragma warning disable IDE1006 // Naming Styles
         static string __FUNC__([System.Runtime.CompilerServices.CallerMemberName] string fileName = "")
+#pragma warning restore IDE1006 // Naming Styles
         {
             return fileName;
         }
@@ -66,7 +72,7 @@ namespace RCS4
                         nRelays++;
                         ftdi.OpenByIndex(index);
                         //Nothing unique in the EEPROM to show 4 or 8 channel
-                        FT232R_EEPROM_STRUCTURE ee232r = new FT232R_EEPROM_STRUCTURE();
+                        FT232R_EEPROM_STRUCTURE ee232r = new();
                         ftdi.ReadFT232REEPROM(ee232r);
                         ftdi.GetCOMPort(out string comport);
                         File.AppendAllText(debugFile, "ComPort=" + comport + "\n");
@@ -83,9 +89,7 @@ namespace RCS4
                     MyMessageBox("Denkovi relay not found", __FILE__(), __LINE__());
                 }
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = ex.Message;
             }
@@ -129,9 +133,7 @@ namespace RCS4
                 }
                 //AllOff();
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay Open failed\n"+ex.Message + "\n";
                 //DebugMsg.DebugAddMsg(DebugMsg.DebugEnum.ERR, errMsg);
@@ -210,9 +212,7 @@ namespace RCS4
                 Set(7, 1);
                 Set(8, 1); // Relay 4
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay AllOff failed\n" + ex.Message;
             }
@@ -234,9 +234,7 @@ namespace RCS4
                 Set(7, 0);
                 Set(8, 0);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay AllOff failed\n"+ex.Message;
             }
@@ -271,9 +269,7 @@ namespace RCS4
                     return true;
                 }
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay Status failed\n"+ex.Message;
             }
@@ -315,9 +311,7 @@ namespace RCS4
                     return 0xff;
                 }
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay Status failed\n"+ex.Message;
             }
@@ -336,7 +330,7 @@ namespace RCS4
             return bitModes;
         }
 
-        void MyMessageBox(string msg, string func, int line)
+        static void MyMessageBox(string msg, string func, int line)
         {
             MessageBox.Show(msg + "\n" + func + "(" + line + ")");
         }
@@ -354,9 +348,7 @@ namespace RCS4
                 byte bitModes = 0;
                 ftdi.GetPinStates(ref bitModes);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay Init failed\n"+ex.Message;
             }
@@ -424,9 +416,7 @@ namespace RCS4
                 }
                 //Status();
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
-#pragma warning restore CA1031 // Do not catch general exception types
             {
                 errMsg = "Relay Set failed\n"+ex.Message;
             }

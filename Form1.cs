@@ -5,7 +5,7 @@ namespace RCS4
 {
     public partial class Form1 : Form
     {
-        Relay myRelay;
+        readonly Relay myRelay;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace RCS4
             groupBox1.Text = myRelay.serialNumber;
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
             //myRelay.AllOn();
             if (radioButton1.Checked)
@@ -37,7 +37,7 @@ namespace RCS4
             //myRelay.AllOff();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton2.Checked)
             {
@@ -46,7 +46,7 @@ namespace RCS4
             }
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton3_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton3.Checked)
             {
@@ -55,7 +55,7 @@ namespace RCS4
             }
         }
 
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton4_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton4.Checked)
             {
