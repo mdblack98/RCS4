@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "RCS4"
-#define MyAppVersion "0.4"
+#define MyAppVersion "0.7"
 #define MyAppPublisher "W9MDB"
 #define MyAppURL "https://www.qrz.com/W9MDB"
 #define MyAppExeName "RCS4.exe"

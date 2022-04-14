@@ -18,10 +18,10 @@ namespace RCS4
             {
                 myRelay.Open(myRelay.comList[0]);
                 int status = myRelay.Status();
-                if (status == 2) radioButton1.Checked = true; else radioButton1.Checked = false; 
-                if (status == 8) radioButton2.Checked = true; else radioButton2.Checked = false;
-                if (status == 32) radioButton3.Checked = true; else radioButton3.Checked= false;
-                if (status == 128) radioButton4.Checked = true; else radioButton4.Checked= false;
+                if ((status & 1) == 1) radioButton1.Checked = true; else radioButton1.Checked = false; 
+                if ((status & 2) == 2) radioButton2.Checked = true; else radioButton2.Checked = false;
+                if ((status & 4) == 4) radioButton3.Checked = true; else radioButton3.Checked= false;
+                if ((status & 8) == 8) radioButton4.Checked = true; else radioButton4.Checked= false;
             }
             groupBox1.Text = myRelay.serialNumber;
         }
@@ -29,27 +29,39 @@ namespace RCS4
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             //myRelay.AllOn();
-            myRelay.Set(1, radioButton1.Checked ? (byte)1 : (byte)0);
-            myRelay.Set(5, radioButton1.Checked ? (byte)1 : (byte)0);
+            if (radioButton1.Checked)
+            {
+                myRelay.Set(1, 0);
+                myRelay.Set(8, 1);
+            }
             //myRelay.AllOff();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            myRelay.Set(2, radioButton2.Checked ? (byte)1 : (byte)0);
-            myRelay.Set(6, radioButton1.Checked ? (byte)1 : (byte)0);
+            if (radioButton2.Checked)
+            {
+                myRelay.Set(2, 0);
+                myRelay.Set(7, 1);
+            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            myRelay.Set(3, radioButton3.Checked ? (byte)1 : (byte)0);
-            myRelay.Set(7, radioButton1.Checked ? (byte)1 : (byte)0);
+            if (radioButton3.Checked)
+            {
+                myRelay.Set(3, 0);
+                myRelay.Set(6, 1);
+            }
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            myRelay.Set(4, radioButton4.Checked ? (byte)1 : (byte)0);
-            myRelay.Set(8, radioButton1.Checked ? (byte)1 : (byte)0);
+            if (radioButton4.Checked)
+            {
+                myRelay.Set(4, 0);
+                myRelay.Set(5, 1);
+            }
         }
     }
 }

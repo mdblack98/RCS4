@@ -388,13 +388,16 @@ namespace RCS4
 
                 ftdi.GetPinStates(ref bitModes);
 
-                if (status != 0)
+                if (status != 0) // Then we OR the added relay in
                 {
-                    flags = (byte)(bitModes | (1u << (nRelay - 1)));
+                    var relayBit = 1u << (nRelay - 1);
+                    flags = (byte)(bitModes | relayBit);
                 }
-                else
+                else // Just set the requested relay and turn all others off
                 {
-                    flags = (byte)(bitModes & (~(1u << (nRelay - 1))));
+                    var relayBit = 1u << (nRelay - 1);
+                    //flags = (byte)(bitModes & (~(relayBit)));
+                    flags = (byte)relayBit;
                 }
                 data[2] = flags;
                 ftdi.Write(data, data.Length, ref nWritten);
