@@ -376,7 +376,7 @@ namespace RCS4
             try
             {
                 // Get status
-                byte[] data = { 0xff, 0xff, 0x00 };
+                byte[] data = { 0x00, 0x00, 0x00 };
                 uint nWritten = 0;
                 byte flags;
                 byte bitModes = 0x00;
