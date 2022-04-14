@@ -63,13 +63,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     # Install the .NET Core workload
     - name: Install .NET Core sdk
-      uses: actions/checkout@v3
       uses: actions/setup-dotnet@v2
       with:
         include-prerelease: true
